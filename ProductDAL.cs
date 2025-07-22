@@ -5,7 +5,7 @@ using System.Data.SqlClient; //ado.net kütüphaneleri
 
 namespace AdoNetProjectExample
 {
-	public class ProductDal : OrtakDAL
+	public class ProductDAL : OrtakDAL
 	{
 		public List<Product> GetAll()
 		{
@@ -27,10 +27,10 @@ namespace AdoNetProjectExample
 					Price = Convert.ToDecimal(reader["UrunFiyati"]),
 					Active = Convert.ToBoolean(reader["Durum"]),
 					Department = Convert.ToString(reader["Departman"]),
-					Upper = Convert.ToInt32(reader["ÜstTakım"]),
-					Lower = Convert.ToInt32(reader["AltTakım"]),
-					CreateDate = Convert.ToDateTime(reader["DeğiştirmeTarihi"]),
-					Description = Convert.ToString(reader["Açıklama"])
+					Upper = Convert.ToInt32(reader["UstTakim"]),
+					Lower = Convert.ToInt32(reader["AltTakim"]),
+					CreateDate = Convert.ToDateTime(reader["DegiştirmeTarihi"]),
+					Description = Convert.ToString(reader["Açiklama"])
 				};
 				products.Add(product); // db den okunan ürünü listeye ekle
 			}
@@ -45,7 +45,7 @@ namespace AdoNetProjectExample
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand(
-				"Insert into ProductDetails values(@UrunAdi,@UrunFiyati,@StokMiktari,@Durum,@Departman,@Üst,@Alt,@Açıklama,@Tarih)", _connection);
+				"Insert into ProductDetails values(@UrunAdi,@UrunFiyati,@StokMiktari,@Durum,@Departman,@Üst,@Alt,@Açiklama,@Tarih)", _connection);
 
 			command.Parameters.AddWithValue("@UrunAdi", product.Name);
 			command.Parameters.AddWithValue("@UrunFiyati", product.Price);
@@ -54,7 +54,7 @@ namespace AdoNetProjectExample
 			command.Parameters.AddWithValue("@Departman", product.Department);
 			command.Parameters.AddWithValue("@Üst", product.Upper);
 			command.Parameters.AddWithValue("@Alt", product.Lower);
-			command.Parameters.AddWithValue("@Açıklama", product.Description);
+			command.Parameters.AddWithValue("@Açiklama", product.Description);
 			command.Parameters.AddWithValue("@Tarih", product.CreateDate);
 			sonuc = command.ExecuteNonQuery();
 			command.Dispose();
@@ -66,16 +66,16 @@ namespace AdoNetProjectExample
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand(
-				"Update ProductDetails set Name=@UAdi, Price=@UrunFiyati, Stock=@StokMiktari, Active=@Durum where ProductId=@id", _connection);
+				"Update ProductDetails set Name=@UrunAdi, Price=@UrunFiyati, Stock=@StokMiktari, Active=@Durum, Department=@Departman, Upper=@Üst, Lower=@Alt, Description=@Aciklama, CreateDate=@Tarih @where ProductId=@id", _connection);
 			command.Parameters.AddWithValue("@UrunAdi", product.Name);
 			command.Parameters.AddWithValue("@UrunFiyati", product.Price);
 			command.Parameters.AddWithValue("@StokMiktari", product.Stock);
 			command.Parameters.AddWithValue("@Durum", product.Active);
-			command.Parameters.AddWithValue("@UrunAdi", product.Department);
-			command.Parameters.AddWithValue("@UrunFiyati", product.Upper);
-			command.Parameters.AddWithValue("@StokMiktari", product.Lower);
-			command.Parameters.AddWithValue("@Durum", product.Description);
-			command.Parameters.AddWithValue("@Durum", product.CreateDate);
+			command.Parameters.AddWithValue("@Departman", product.Department);
+			command.Parameters.AddWithValue("@Üst", product.Upper);
+			command.Parameters.AddWithValue("@Alt", product.Lower);
+			command.Parameters.AddWithValue("@Aciklama", product.Description);
+			command.Parameters.AddWithValue("@Tarih", product.CreateDate);
 			sonuc = command.ExecuteNonQuery();
 			command.Dispose();
 			_connection.Close();

@@ -16,10 +16,10 @@ namespace AdoNetProjectExample
 		{
 			InitializeComponent();
 		}
-		ProductDal ProductDAL = new ProductDal();
+		ProductDAL productDal = new ProductDAL();
 		private void ProductDetails_Load(object sender, EventArgs e)
 		{
-			dgvUrunListesi.DataSource = ProductDAL.GetDataTable("select * from ProductDeails");
+			dgvUrunListesi.DataSource = productDal.GetDataTable("select * from ProductDetails");
 		}
 
 		private void btnEkle_Click(object sender, EventArgs e)
@@ -28,9 +28,14 @@ namespace AdoNetProjectExample
 			{
 				var urun = new Product
 				{
-					UrunAdi = txtUrunAdi.Text,
-					StokMiktari = Convert.ToInt32(txtStokMiktari.Text),
-					UrunFiyati = Convert.ToDecimal(txtUrunFiyati.Text),
+					Name = txtName.Text,
+					Stock = Convert.ToInt32(txtStock.Text),
+					Price = Convert.ToInt32(txtPrice.Text),
+					Department = Convert.ToString(txtDepartment.Text),
+					Upper = Convert.ToInt32(txtUpper.Text),
+					Lower = Convert.ToInt32(txtLower.Text),
+					Description = Convert.ToString(txtDescription.Text),
+					CreateDate = Convert.ToDateTime(txtCreateDate.Text),
 					Active = cbActive.Checked
 				};
 				int sonuc = productDal.Add(urun);
@@ -50,30 +55,37 @@ namespace AdoNetProjectExample
 			}
 
 		}
-
 		private void dgvUrunListesi_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			txtUrunAdi.Text = dgvUrunListesi.CurrentRow.Cells[1].Value.ToString();
-			txtUrunFiyati.Text = dgvUrunListesi.CurrentRow.Cells[2].Value.ToString();
-			txtStokMiktari.Text = dgvUrunListesi.CurrentRow.Cells[3].Value.ToString();
-			cbDurum.Checked = (bool)dgvUrunListesi.CurrentRow.Cells[4].Value;
+			txtName.Text = dgvUrunListesi.CurrentRow.Cells[1].Value.ToString();
+			txtPrice.Text = dgvUrunListesi.CurrentRow.Cells[2].Value.ToString();
+			txtStock.Text = dgvUrunListesi.CurrentRow.Cells[3].Value.ToString();
+			txtDepartment.Text = dgvUrunListesi.CurrentRow.Cells[4].Value.ToString();
+			txtUpper.Text = dgvUrunListesi.CurrentRow.Cells[5].Value.ToString();
+			txtLower.Text = dgvUrunListesi.CurrentRow.Cells[6].Value.ToString();
+			txtDescription.Text = dgvUrunListesi.CurrentRow.Cells[7].Value.ToString();
+			txtCreateDate.Text = dgvUrunListesi.CurrentRow.Cells[8].Value.ToString();
+			cbActive.Checked = (bool)dgvUrunListesi.CurrentRow.Cells[9].Value;
 
 			btnEkle.Enabled = false;
 			btnGuncelle.Enabled = true;
 			btnSil.Enabled = true;
 		}
-
 		private void btnGuncelle_Click(object sender, EventArgs e)
 		{
 			try
 			{
 				var urun = new Product
 				{
-					Id = (int)dgvUrunListesi.CurrentRow.Cells[0].Value,
-					UrunAdi = txtUrunAdi.Text,
-					StokMiktari = Convert.ToInt32(txtStokMiktari.Text),
-					UrunFiyati = Convert.ToDecimal(txtUrunFiyati.Text),
-					Durum = cbDurum.Checked
+					ProductId = (int)dgvUrunListesi.CurrentRow.Cells[0].Value,
+					Name = txtName.Text,
+					Stock = Convert.ToInt32(txtStock.Text),
+					Price = Convert.ToDecimal(txtPrice.Text),
+					Department = Convert.ToString(txtPrice.Text),
+					Upper = Convert.ToInt32(txtPrice.Text),
+					Lower = Convert.ToInt32(txtPrice.Text),
+					Description = Convert.ToString(txtPrice.Text),
+					Active = cbActive.Checked
 				};
 				int sonuc = productDal.Update(urun);
 				if (sonuc > 0)
@@ -117,7 +129,6 @@ namespace AdoNetProjectExample
 					MessageBox.Show("Hata Oluştu!");
 				}
 			}
-
 		}
 	}
 }

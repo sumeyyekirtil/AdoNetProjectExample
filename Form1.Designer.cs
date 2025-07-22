@@ -30,33 +30,34 @@
 		{
 			this.dgvUrunListesi = new System.Windows.Forms.DataGridView();
 			this.gbProduct = new System.Windows.Forms.GroupBox();
-			this.cbActive = new System.Windows.Forms.CheckBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.lblId = new System.Windows.Forms.Label();
-			this.lblDepartment = new System.Windows.Forms.Label();
-			this.lblUpper = new System.Windows.Forms.Label();
-			this.lblLower = new System.Windows.Forms.Label();
-			this.lblName = new System.Windows.Forms.Label();
-			this.lblStock = new System.Windows.Forms.Label();
-			this.lblCreateDate = new System.Windows.Forms.Label();
-			this.lblDescription = new System.Windows.Forms.Label();
-			this.lblActive = new System.Windows.Forms.Label();
-			this.textBox7 = new System.Windows.Forms.TextBox();
-			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			this.btnEkle = new System.Windows.Forms.Button();
-			this.btnSil = new System.Windows.Forms.Button();
 			this.btnGuncelle = new System.Windows.Forms.Button();
+			this.btnSil = new System.Windows.Forms.Button();
+			this.btnEkle = new System.Windows.Forms.Button();
+			this.txtDescription = new System.Windows.Forms.RichTextBox();
+			this.txtPrice = new System.Windows.Forms.TextBox();
+			this.lblActive = new System.Windows.Forms.Label();
+			this.lblDescription = new System.Windows.Forms.Label();
+			this.lblPrice = new System.Windows.Forms.Label();
+			this.lblStock = new System.Windows.Forms.Label();
+			this.lblName = new System.Windows.Forms.Label();
+			this.lblLower = new System.Windows.Forms.Label();
+			this.lblUpper = new System.Windows.Forms.Label();
+			this.lblDepartment = new System.Windows.Forms.Label();
+			this.lblCreateDate = new System.Windows.Forms.Label();
+			this.txtStock = new System.Windows.Forms.TextBox();
+			this.txtName = new System.Windows.Forms.TextBox();
+			this.txtLower = new System.Windows.Forms.TextBox();
+			this.txtUpper = new System.Windows.Forms.TextBox();
+			this.txtDepartment = new System.Windows.Forms.TextBox();
+			this.txtCreateDate = new System.Windows.Forms.TextBox();
+			this.cbActive = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgvUrunListesi)).BeginInit();
 			this.gbProduct.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// dgvUrunListesi
 			// 
+			this.dgvUrunListesi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvUrunListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvUrunListesi.Location = new System.Drawing.Point(345, 31);
 			this.dgvUrunListesi.Name = "dgvUrunListesi";
@@ -71,23 +72,23 @@
 			this.gbProduct.Controls.Add(this.btnGuncelle);
 			this.gbProduct.Controls.Add(this.btnSil);
 			this.gbProduct.Controls.Add(this.btnEkle);
-			this.gbProduct.Controls.Add(this.richTextBox1);
-			this.gbProduct.Controls.Add(this.textBox7);
+			this.gbProduct.Controls.Add(this.txtDescription);
+			this.gbProduct.Controls.Add(this.txtPrice);
 			this.gbProduct.Controls.Add(this.lblActive);
 			this.gbProduct.Controls.Add(this.lblDescription);
-			this.gbProduct.Controls.Add(this.lblCreateDate);
+			this.gbProduct.Controls.Add(this.lblPrice);
 			this.gbProduct.Controls.Add(this.lblStock);
 			this.gbProduct.Controls.Add(this.lblName);
 			this.gbProduct.Controls.Add(this.lblLower);
 			this.gbProduct.Controls.Add(this.lblUpper);
 			this.gbProduct.Controls.Add(this.lblDepartment);
-			this.gbProduct.Controls.Add(this.lblId);
-			this.gbProduct.Controls.Add(this.textBox6);
-			this.gbProduct.Controls.Add(this.textBox5);
-			this.gbProduct.Controls.Add(this.textBox4);
-			this.gbProduct.Controls.Add(this.textBox3);
-			this.gbProduct.Controls.Add(this.textBox2);
-			this.gbProduct.Controls.Add(this.textBox1);
+			this.gbProduct.Controls.Add(this.lblCreateDate);
+			this.gbProduct.Controls.Add(this.txtStock);
+			this.gbProduct.Controls.Add(this.txtName);
+			this.gbProduct.Controls.Add(this.txtLower);
+			this.gbProduct.Controls.Add(this.txtUpper);
+			this.gbProduct.Controls.Add(this.txtDepartment);
+			this.gbProduct.Controls.Add(this.txtCreateDate);
 			this.gbProduct.Controls.Add(this.cbActive);
 			this.gbProduct.Location = new System.Drawing.Point(29, 31);
 			this.gbProduct.Name = "gbProduct";
@@ -96,163 +97,15 @@
 			this.gbProduct.TabStop = false;
 			this.gbProduct.Text = "Ürün Detay";
 			// 
-			// cbActive
+			// btnGuncelle
 			// 
-			this.cbActive.AutoSize = true;
-			this.cbActive.Location = new System.Drawing.Point(117, 257);
-			this.cbActive.Name = "cbActive";
-			this.cbActive.Size = new System.Drawing.Size(66, 20);
-			this.cbActive.TabIndex = 0;
-			this.cbActive.Text = "Active";
-			this.cbActive.UseVisualStyleBackColor = true;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(117, 31);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(141, 22);
-			this.textBox1.TabIndex = 1;
-			// 
-			// textBox2
-			// 
-			this.textBox2.Location = new System.Drawing.Point(117, 63);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(141, 22);
-			this.textBox2.TabIndex = 2;
-			// 
-			// textBox3
-			// 
-			this.textBox3.Location = new System.Drawing.Point(117, 94);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(141, 22);
-			this.textBox3.TabIndex = 3;
-			// 
-			// textBox4
-			// 
-			this.textBox4.Location = new System.Drawing.Point(117, 126);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(141, 22);
-			this.textBox4.TabIndex = 4;
-			// 
-			// textBox5
-			// 
-			this.textBox5.Location = new System.Drawing.Point(117, 158);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(141, 22);
-			this.textBox5.TabIndex = 5;
-			// 
-			// textBox6
-			// 
-			this.textBox6.Location = new System.Drawing.Point(117, 192);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(141, 22);
-			this.textBox6.TabIndex = 6;
-			// 
-			// lblId
-			// 
-			this.lblId.AutoSize = true;
-			this.lblId.Location = new System.Drawing.Point(13, 34);
-			this.lblId.Name = "lblId";
-			this.lblId.Size = new System.Drawing.Size(64, 16);
-			this.lblId.TabIndex = 7;
-			this.lblId.Text = "ProductId";
-			// 
-			// lblDepartment
-			// 
-			this.lblDepartment.AutoSize = true;
-			this.lblDepartment.Location = new System.Drawing.Point(13, 66);
-			this.lblDepartment.Name = "lblDepartment";
-			this.lblDepartment.Size = new System.Drawing.Size(77, 16);
-			this.lblDepartment.TabIndex = 8;
-			this.lblDepartment.Text = "Department";
-			// 
-			// lblUpper
-			// 
-			this.lblUpper.AutoSize = true;
-			this.lblUpper.Location = new System.Drawing.Point(13, 97);
-			this.lblUpper.Name = "lblUpper";
-			this.lblUpper.Size = new System.Drawing.Size(45, 16);
-			this.lblUpper.TabIndex = 9;
-			this.lblUpper.Text = "Upper";
-			// 
-			// lblLower
-			// 
-			this.lblLower.AutoSize = true;
-			this.lblLower.Location = new System.Drawing.Point(13, 129);
-			this.lblLower.Name = "lblLower";
-			this.lblLower.Size = new System.Drawing.Size(43, 16);
-			this.lblLower.TabIndex = 10;
-			this.lblLower.Text = "Lower";
-			// 
-			// lblName
-			// 
-			this.lblName.AutoSize = true;
-			this.lblName.Location = new System.Drawing.Point(13, 161);
-			this.lblName.Name = "lblName";
-			this.lblName.Size = new System.Drawing.Size(44, 16);
-			this.lblName.TabIndex = 11;
-			this.lblName.Text = "Name";
-			// 
-			// lblStock
-			// 
-			this.lblStock.AutoSize = true;
-			this.lblStock.Location = new System.Drawing.Point(13, 195);
-			this.lblStock.Name = "lblStock";
-			this.lblStock.Size = new System.Drawing.Size(41, 16);
-			this.lblStock.TabIndex = 12;
-			this.lblStock.Text = "Stock";
-			// 
-			// lblCreateDate
-			// 
-			this.lblCreateDate.AutoSize = true;
-			this.lblCreateDate.Location = new System.Drawing.Point(13, 229);
-			this.lblCreateDate.Name = "lblCreateDate";
-			this.lblCreateDate.Size = new System.Drawing.Size(76, 16);
-			this.lblCreateDate.TabIndex = 13;
-			this.lblCreateDate.Text = "CreateDate";
-			// 
-			// lblDescription
-			// 
-			this.lblDescription.AutoSize = true;
-			this.lblDescription.Location = new System.Drawing.Point(13, 291);
-			this.lblDescription.Name = "lblDescription";
-			this.lblDescription.Size = new System.Drawing.Size(75, 16);
-			this.lblDescription.TabIndex = 14;
-			this.lblDescription.Text = "Description";
-			// 
-			// lblActive
-			// 
-			this.lblActive.AutoSize = true;
-			this.lblActive.Location = new System.Drawing.Point(13, 261);
-			this.lblActive.Name = "lblActive";
-			this.lblActive.Size = new System.Drawing.Size(44, 16);
-			this.lblActive.TabIndex = 15;
-			this.lblActive.Text = "Active";
-			// 
-			// textBox7
-			// 
-			this.textBox7.Location = new System.Drawing.Point(117, 226);
-			this.textBox7.Name = "textBox7";
-			this.textBox7.Size = new System.Drawing.Size(141, 22);
-			this.textBox7.TabIndex = 16;
-			// 
-			// richTextBox1
-			// 
-			this.richTextBox1.Location = new System.Drawing.Point(117, 283);
-			this.richTextBox1.Name = "richTextBox1";
-			this.richTextBox1.Size = new System.Drawing.Size(141, 131);
-			this.richTextBox1.TabIndex = 17;
-			this.richTextBox1.Text = "";
-			// 
-			// btnEkle
-			// 
-			this.btnEkle.Location = new System.Drawing.Point(16, 420);
-			this.btnEkle.Name = "btnEkle";
-			this.btnEkle.Size = new System.Drawing.Size(75, 42);
-			this.btnEkle.TabIndex = 18;
-			this.btnEkle.Text = "Ekle";
-			this.btnEkle.UseVisualStyleBackColor = true;
-			this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
+			this.btnGuncelle.Location = new System.Drawing.Point(108, 420);
+			this.btnGuncelle.Name = "btnGuncelle";
+			this.btnGuncelle.Size = new System.Drawing.Size(75, 42);
+			this.btnGuncelle.TabIndex = 20;
+			this.btnGuncelle.Text = "Güncelle";
+			this.btnGuncelle.UseVisualStyleBackColor = true;
+			this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
 			// 
 			// btnSil
 			// 
@@ -264,15 +117,163 @@
 			this.btnSil.UseVisualStyleBackColor = true;
 			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
 			// 
-			// btnGuncelle
+			// btnEkle
 			// 
-			this.btnGuncelle.Location = new System.Drawing.Point(108, 420);
-			this.btnGuncelle.Name = "btnGuncelle";
-			this.btnGuncelle.Size = new System.Drawing.Size(75, 42);
-			this.btnGuncelle.TabIndex = 20;
-			this.btnGuncelle.Text = "Güncelle";
-			this.btnGuncelle.UseVisualStyleBackColor = true;
-			this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+			this.btnEkle.Location = new System.Drawing.Point(16, 420);
+			this.btnEkle.Name = "btnEkle";
+			this.btnEkle.Size = new System.Drawing.Size(75, 42);
+			this.btnEkle.TabIndex = 18;
+			this.btnEkle.Text = "Ekle";
+			this.btnEkle.UseVisualStyleBackColor = true;
+			this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
+			// 
+			// txtDescription
+			// 
+			this.txtDescription.Location = new System.Drawing.Point(117, 283);
+			this.txtDescription.Name = "txtDescription";
+			this.txtDescription.Size = new System.Drawing.Size(141, 131);
+			this.txtDescription.TabIndex = 17;
+			this.txtDescription.Text = "";
+			// 
+			// txtPrice
+			// 
+			this.txtPrice.Location = new System.Drawing.Point(117, 226);
+			this.txtPrice.Name = "txtPrice";
+			this.txtPrice.Size = new System.Drawing.Size(141, 22);
+			this.txtPrice.TabIndex = 16;
+			// 
+			// lblActive
+			// 
+			this.lblActive.AutoSize = true;
+			this.lblActive.Location = new System.Drawing.Point(13, 261);
+			this.lblActive.Name = "lblActive";
+			this.lblActive.Size = new System.Drawing.Size(44, 16);
+			this.lblActive.TabIndex = 15;
+			this.lblActive.Text = "Active";
+			// 
+			// lblDescription
+			// 
+			this.lblDescription.AutoSize = true;
+			this.lblDescription.Location = new System.Drawing.Point(13, 291);
+			this.lblDescription.Name = "lblDescription";
+			this.lblDescription.Size = new System.Drawing.Size(75, 16);
+			this.lblDescription.TabIndex = 14;
+			this.lblDescription.Text = "Description";
+			// 
+			// lblPrice
+			// 
+			this.lblPrice.AutoSize = true;
+			this.lblPrice.Location = new System.Drawing.Point(13, 229);
+			this.lblPrice.Name = "lblPrice";
+			this.lblPrice.Size = new System.Drawing.Size(38, 16);
+			this.lblPrice.TabIndex = 13;
+			this.lblPrice.Text = "Price";
+			// 
+			// lblStock
+			// 
+			this.lblStock.AutoSize = true;
+			this.lblStock.Location = new System.Drawing.Point(13, 195);
+			this.lblStock.Name = "lblStock";
+			this.lblStock.Size = new System.Drawing.Size(41, 16);
+			this.lblStock.TabIndex = 12;
+			this.lblStock.Text = "Stock";
+			// 
+			// lblName
+			// 
+			this.lblName.AutoSize = true;
+			this.lblName.Location = new System.Drawing.Point(13, 161);
+			this.lblName.Name = "lblName";
+			this.lblName.Size = new System.Drawing.Size(44, 16);
+			this.lblName.TabIndex = 11;
+			this.lblName.Text = "Name";
+			// 
+			// lblLower
+			// 
+			this.lblLower.AutoSize = true;
+			this.lblLower.Location = new System.Drawing.Point(13, 129);
+			this.lblLower.Name = "lblLower";
+			this.lblLower.Size = new System.Drawing.Size(43, 16);
+			this.lblLower.TabIndex = 10;
+			this.lblLower.Text = "Lower";
+			// 
+			// lblUpper
+			// 
+			this.lblUpper.AutoSize = true;
+			this.lblUpper.Location = new System.Drawing.Point(13, 97);
+			this.lblUpper.Name = "lblUpper";
+			this.lblUpper.Size = new System.Drawing.Size(45, 16);
+			this.lblUpper.TabIndex = 9;
+			this.lblUpper.Text = "Upper";
+			// 
+			// lblDepartment
+			// 
+			this.lblDepartment.AutoSize = true;
+			this.lblDepartment.Location = new System.Drawing.Point(13, 66);
+			this.lblDepartment.Name = "lblDepartment";
+			this.lblDepartment.Size = new System.Drawing.Size(77, 16);
+			this.lblDepartment.TabIndex = 8;
+			this.lblDepartment.Text = "Department";
+			// 
+			// lblCreateDate
+			// 
+			this.lblCreateDate.AutoSize = true;
+			this.lblCreateDate.Location = new System.Drawing.Point(13, 34);
+			this.lblCreateDate.Name = "lblCreateDate";
+			this.lblCreateDate.Size = new System.Drawing.Size(76, 16);
+			this.lblCreateDate.TabIndex = 7;
+			this.lblCreateDate.Text = "CreateDate";
+			// 
+			// txtStock
+			// 
+			this.txtStock.Location = new System.Drawing.Point(117, 192);
+			this.txtStock.Name = "txtStock";
+			this.txtStock.Size = new System.Drawing.Size(141, 22);
+			this.txtStock.TabIndex = 6;
+			// 
+			// txtName
+			// 
+			this.txtName.Location = new System.Drawing.Point(117, 158);
+			this.txtName.Name = "txtName";
+			this.txtName.Size = new System.Drawing.Size(141, 22);
+			this.txtName.TabIndex = 5;
+			// 
+			// txtLower
+			// 
+			this.txtLower.Location = new System.Drawing.Point(117, 126);
+			this.txtLower.Name = "txtLower";
+			this.txtLower.Size = new System.Drawing.Size(141, 22);
+			this.txtLower.TabIndex = 4;
+			// 
+			// txtUpper
+			// 
+			this.txtUpper.Location = new System.Drawing.Point(117, 94);
+			this.txtUpper.Name = "txtUpper";
+			this.txtUpper.Size = new System.Drawing.Size(141, 22);
+			this.txtUpper.TabIndex = 3;
+			// 
+			// txtDepartment
+			// 
+			this.txtDepartment.Location = new System.Drawing.Point(117, 63);
+			this.txtDepartment.Name = "txtDepartment";
+			this.txtDepartment.Size = new System.Drawing.Size(141, 22);
+			this.txtDepartment.TabIndex = 2;
+			// 
+			// txtCreateDate
+			// 
+			this.txtCreateDate.Location = new System.Drawing.Point(117, 31);
+			this.txtCreateDate.Name = "txtCreateDate";
+			this.txtCreateDate.Size = new System.Drawing.Size(141, 22);
+			this.txtCreateDate.TabIndex = 1;
+			// 
+			// cbActive
+			// 
+			this.cbActive.AutoSize = true;
+			this.cbActive.Location = new System.Drawing.Point(117, 257);
+			this.cbActive.Name = "cbActive";
+			this.cbActive.Size = new System.Drawing.Size(66, 20);
+			this.cbActive.TabIndex = 0;
+			this.cbActive.Text = "Active";
+			this.cbActive.UseVisualStyleBackColor = true;
 			// 
 			// ProductDetails
 			// 
@@ -301,19 +302,19 @@
 		private System.Windows.Forms.Label lblLower;
 		private System.Windows.Forms.Label lblUpper;
 		private System.Windows.Forms.Label lblDepartment;
-		private System.Windows.Forms.Label lblId;
-		private System.Windows.Forms.TextBox textBox6;
-		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label lblCreateDate;
+		private System.Windows.Forms.TextBox txtStock;
+		private System.Windows.Forms.TextBox txtName;
+		private System.Windows.Forms.TextBox txtLower;
+		private System.Windows.Forms.TextBox txtUpper;
+		private System.Windows.Forms.TextBox txtDepartment;
+		private System.Windows.Forms.TextBox txtCreateDate;
 		private System.Windows.Forms.CheckBox cbActive;
 		private System.Windows.Forms.Label lblActive;
 		private System.Windows.Forms.Label lblDescription;
-		private System.Windows.Forms.Label lblCreateDate;
-		private System.Windows.Forms.RichTextBox richTextBox1;
-		private System.Windows.Forms.TextBox textBox7;
+		private System.Windows.Forms.Label lblPrice;
+		private System.Windows.Forms.RichTextBox txtDescription;
+		private System.Windows.Forms.TextBox txtPrice;
 		private System.Windows.Forms.Button btnGuncelle;
 		private System.Windows.Forms.Button btnSil;
 		private System.Windows.Forms.Button btnEkle;
