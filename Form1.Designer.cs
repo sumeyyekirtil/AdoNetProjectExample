@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dgvUrunListesi = new System.Windows.Forms.DataGridView();
 			this.gbProduct = new System.Windows.Forms.GroupBox();
 			this.cbActive = new System.Windows.Forms.CheckBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
@@ -51,19 +51,20 @@
 			this.btnEkle = new System.Windows.Forms.Button();
 			this.btnSil = new System.Windows.Forms.Button();
 			this.btnGuncelle = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvUrunListesi)).BeginInit();
 			this.gbProduct.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// dataGridView1
+			// dgvUrunListesi
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(345, 31);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.RowHeadersWidth = 51;
-			this.dataGridView1.RowTemplate.Height = 24;
-			this.dataGridView1.Size = new System.Drawing.Size(610, 478);
-			this.dataGridView1.TabIndex = 0;
+			this.dgvUrunListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvUrunListesi.Location = new System.Drawing.Point(345, 31);
+			this.dgvUrunListesi.Name = "dgvUrunListesi";
+			this.dgvUrunListesi.RowHeadersWidth = 51;
+			this.dgvUrunListesi.RowTemplate.Height = 24;
+			this.dgvUrunListesi.Size = new System.Drawing.Size(610, 478);
+			this.dgvUrunListesi.TabIndex = 0;
+			this.dgvUrunListesi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunListesi_CellClick);
 			// 
 			// gbProduct
 			// 
@@ -251,6 +252,7 @@
 			this.btnEkle.TabIndex = 18;
 			this.btnEkle.Text = "Ekle";
 			this.btnEkle.UseVisualStyleBackColor = true;
+			this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
 			// 
 			// btnSil
 			// 
@@ -260,6 +262,7 @@
 			this.btnSil.TabIndex = 19;
 			this.btnSil.Text = "Sil";
 			this.btnSil.UseVisualStyleBackColor = true;
+			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
 			// 
 			// btnGuncelle
 			// 
@@ -269,6 +272,7 @@
 			this.btnGuncelle.TabIndex = 20;
 			this.btnGuncelle.Text = "Güncelle";
 			this.btnGuncelle.UseVisualStyleBackColor = true;
+			this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
 			// 
 			// ProductDetails
 			// 
@@ -276,11 +280,12 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(967, 543);
 			this.Controls.Add(this.gbProduct);
-			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.dgvUrunListesi);
 			this.Name = "ProductDetails";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Ürün Yönetimi";
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.Load += new System.EventHandler(this.ProductDetails_Load);
+			((System.ComponentModel.ISupportInitialize)(this.dgvUrunListesi)).EndInit();
 			this.gbProduct.ResumeLayout(false);
 			this.gbProduct.PerformLayout();
 			this.ResumeLayout(false);
@@ -289,7 +294,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dgvUrunListesi;
 		private System.Windows.Forms.GroupBox gbProduct;
 		private System.Windows.Forms.Label lblStock;
 		private System.Windows.Forms.Label lblName;

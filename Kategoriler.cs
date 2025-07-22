@@ -16,5 +16,10 @@ namespace AdoNetProjectExample
 		{
 			InitializeComponent();
 		}
+		KategoriDAL kategoriDAL = new KategoriDAL();
+		private void Kategoriler_Load(object sender, EventArgs e)
+		{
+			dgvKategoriler.DataSource = kategoriDAL.GetDataTable("select * from Kategoriler");
+		}
 	}
 }
