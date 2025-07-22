@@ -57,15 +57,15 @@ namespace AdoNetProjectExample
 		}
 		private void dgvUrunListesi_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			txtName.Text = dgvUrunListesi.CurrentRow.Cells[1].Value.ToString();
-			txtPrice.Text = dgvUrunListesi.CurrentRow.Cells[2].Value.ToString();
-			txtStock.Text = dgvUrunListesi.CurrentRow.Cells[3].Value.ToString();
-			txtDepartment.Text = dgvUrunListesi.CurrentRow.Cells[4].Value.ToString();
-			txtUpper.Text = dgvUrunListesi.CurrentRow.Cells[5].Value.ToString();
-			txtLower.Text = dgvUrunListesi.CurrentRow.Cells[6].Value.ToString();
-			txtDescription.Text = dgvUrunListesi.CurrentRow.Cells[7].Value.ToString();
-			txtCreateDate.Text = dgvUrunListesi.CurrentRow.Cells[8].Value.ToString();
-			cbActive.Checked = (bool)dgvUrunListesi.CurrentRow.Cells[9].Value;
+			txtCreateDate.Text = dgvUrunListesi.CurrentRow.Cells[1].Value.ToString();
+			txtDepartment.Text = dgvUrunListesi.CurrentRow.Cells[2].Value.ToString();
+			txtUpper.Text = dgvUrunListesi.CurrentRow.Cells[3].Value.ToString();
+			txtLower.Text = dgvUrunListesi.CurrentRow.Cells[4].Value.ToString();
+			txtName.Text = dgvUrunListesi.CurrentRow.Cells[5].Value.ToString();
+			txtStock.Text = dgvUrunListesi.CurrentRow.Cells[6].Value.ToString();
+			txtPrice.Text = dgvUrunListesi.CurrentRow.Cells[7].Value.ToString();
+			cbActive.Checked = (bool)dgvUrunListesi.CurrentRow.Cells[8].Value;
+			txtDescription.Text = dgvUrunListesi.CurrentRow.Cells[9].Value.ToString();
 
 			btnEkle.Enabled = false;
 			btnGuncelle.Enabled = true;
