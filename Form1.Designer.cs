@@ -69,6 +69,7 @@
 			// 
 			// gbProduct
 			// 
+			this.gbProduct.BackColor = System.Drawing.Color.DarkGray;
 			this.gbProduct.Controls.Add(this.btnGuncelle);
 			this.gbProduct.Controls.Add(this.btnSil);
 			this.gbProduct.Controls.Add(this.btnEkle);
@@ -99,32 +100,35 @@
 			// 
 			// btnGuncelle
 			// 
+			this.btnGuncelle.BackColor = System.Drawing.Color.DeepSkyBlue;
 			this.btnGuncelle.Location = new System.Drawing.Point(108, 420);
 			this.btnGuncelle.Name = "btnGuncelle";
 			this.btnGuncelle.Size = new System.Drawing.Size(75, 42);
 			this.btnGuncelle.TabIndex = 20;
 			this.btnGuncelle.Text = "Güncelle";
-			this.btnGuncelle.UseVisualStyleBackColor = true;
+			this.btnGuncelle.UseVisualStyleBackColor = false;
 			this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
 			// 
 			// btnSil
 			// 
+			this.btnSil.BackColor = System.Drawing.Color.Coral;
 			this.btnSil.Location = new System.Drawing.Point(198, 420);
 			this.btnSil.Name = "btnSil";
 			this.btnSil.Size = new System.Drawing.Size(75, 42);
 			this.btnSil.TabIndex = 19;
 			this.btnSil.Text = "Sil";
-			this.btnSil.UseVisualStyleBackColor = true;
+			this.btnSil.UseVisualStyleBackColor = false;
 			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
 			// 
 			// btnEkle
 			// 
+			this.btnEkle.BackColor = System.Drawing.Color.Aquamarine;
 			this.btnEkle.Location = new System.Drawing.Point(16, 420);
 			this.btnEkle.Name = "btnEkle";
 			this.btnEkle.Size = new System.Drawing.Size(75, 42);
 			this.btnEkle.TabIndex = 18;
 			this.btnEkle.Text = "Ekle";
-			this.btnEkle.UseVisualStyleBackColor = true;
+			this.btnEkle.UseVisualStyleBackColor = false;
 			this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
 			// 
 			// txtDescription
@@ -282,6 +286,7 @@
 			this.ClientSize = new System.Drawing.Size(967, 543);
 			this.Controls.Add(this.gbProduct);
 			this.Controls.Add(this.dgvUrunListesi);
+			this.ForeColor = System.Drawing.Color.Navy;
 			this.Name = "ProductDetails";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Ürün Yönetimi";

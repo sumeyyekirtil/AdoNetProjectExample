@@ -12,17 +12,17 @@ namespace AdoNetProjectExample
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand(
-				"Insert into Category (Name, Description, CreateDate, Active) values (@Name, @Description, @CreateDate, @Durum)", _connection);
-			command.Parameters.AddWithValue("@Name", category.Name);
-			command.Parameters.AddWithValue("@Description", category.Description);
-			command.Parameters.AddWithValue("@CreateDate", category.CreateDate);
+				"Insert into Category (Name, Description, CreateDate, Active) values (@Ad, @Aciklama, @Tarih, @Durum)", _connection);
+			command.Parameters.AddWithValue("@Ad", category.Name);
+			command.Parameters.AddWithValue("@Aciklama", category.Description);
+			command.Parameters.AddWithValue("@Tarih", category.CreateDate);
 			command.Parameters.AddWithValue("@Durum", category.Active);
 			sonuc = command.ExecuteNonQuery();
 			command.Dispose();
 			_connection.Close();
 			return sonuc;
 		}
-
+		//Güncelle Bağlantı
 		public int Update(Category category)
 		{
 			int sonuc = 0;
@@ -40,13 +40,17 @@ namespace AdoNetProjectExample
 			return sonuc;
 		}
 		public int Delete(int id)
-		{
+		{ //id sil
 			int sonuc = 0;
 			ConnectionKontrol();
+
 			SqlCommand command = new SqlCommand(
 				"Delete From Category where Id=@id", _connection);
+
 			command.Parameters.AddWithValue("@id", id);
+
 			sonuc = command.ExecuteNonQuery();
+
 			command.Dispose();
 			_connection.Close();
 			return sonuc;
@@ -62,7 +66,7 @@ namespace AdoNetProjectExample
 			if (reader != null)
 			{
 				while (reader.Read())
-				{
+				{//sırayla yazılmalı
 					category.Id = reader.GetInt32(0);
 					category.Name = reader.GetString(1);
 					category.Description = reader.GetString(2);

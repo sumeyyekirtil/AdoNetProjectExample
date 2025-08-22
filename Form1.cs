@@ -30,18 +30,19 @@ namespace AdoNetProjectExample
 				{
 					Name = txtName.Text,
 					Stock = Convert.ToInt32(txtStock.Text),
-					Price = Convert.ToInt32(txtPrice.Text),
+					Price = Convert.ToDecimal(txtPrice.Text),
 					Department = Convert.ToString(txtDepartment.Text),
+					CreateDate = (DateTime)dgvUrunListesi.CurrentRow.Cells[4].Value,
 					Upper = Convert.ToInt32(txtUpper.Text),
 					Lower = Convert.ToInt32(txtLower.Text),
 					Description = Convert.ToString(txtDescription.Text),
-					CreateDate = Convert.ToDateTime(txtCreateDate.Text),
+					
 					Active = cbActive.Checked
 				};
 				int sonuc = productDal.Add(urun);
 				if (sonuc > 0)
 				{
-					dgvUrunListesi.DataSource = productDal.GetAll();
+					dgvUrunListesi.DataSource = productDal.GetDataTable();
 					MessageBox.Show("Kayıt Başarılı!");
 				}
 				else
@@ -51,7 +52,7 @@ namespace AdoNetProjectExample
 			}
 			catch (Exception hata)
 			{
-				MessageBox.Show("Hata Oluştu! Lütfen Tüm Alanları Doldurunuz!");
+				MessageBox.Show("Hata Oluştu! Lütfen Tüm Alanları Doldurunuz!" + hata);
 			}
 
 		}
@@ -90,7 +91,7 @@ namespace AdoNetProjectExample
 				int sonuc = productDal.Update(urun);
 				if (sonuc > 0)
 				{
-					dgvUrunListesi.DataSource = productDal.GetAll();
+					dgvUrunListesi.DataSource = productDal.GetDataTable();
 					btnEkle.Enabled = true;
 					btnGuncelle.Enabled = false;
 					btnSil.Enabled = false;
@@ -117,7 +118,7 @@ namespace AdoNetProjectExample
 					int sonuc = productDal.Delete((int)dgvUrunListesi.CurrentRow.Cells[0].Value);
 					if (sonuc > 0)
 					{
-						dgvUrunListesi.DataSource = productDal.GetAll();
+						dgvUrunListesi.DataSource = productDal.GetDataTable();
 						btnEkle.Enabled = true;
 						btnGuncelle.Enabled = false;
 						btnSil.Enabled = false;
