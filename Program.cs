@@ -16,7 +16,7 @@ namespace AdoNetProjectExample
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new ProductDetails());
+			Application.Run(new Kategoriler());
 		}
 	}
 }

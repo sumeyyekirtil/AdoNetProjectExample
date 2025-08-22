@@ -101,9 +101,9 @@
 			// btnGuncelle
 			// 
 			this.btnGuncelle.BackColor = System.Drawing.Color.DeepSkyBlue;
-			this.btnGuncelle.Location = new System.Drawing.Point(108, 420);
+			this.btnGuncelle.Location = new System.Drawing.Point(97, 420);
 			this.btnGuncelle.Name = "btnGuncelle";
-			this.btnGuncelle.Size = new System.Drawing.Size(75, 42);
+			this.btnGuncelle.Size = new System.Drawing.Size(86, 42);
 			this.btnGuncelle.TabIndex = 20;
 			this.btnGuncelle.Text = "Güncelle";
 			this.btnGuncelle.UseVisualStyleBackColor = false;
@@ -112,7 +112,7 @@
 			// btnSil
 			// 
 			this.btnSil.BackColor = System.Drawing.Color.Coral;
-			this.btnSil.Location = new System.Drawing.Point(198, 420);
+			this.btnSil.Location = new System.Drawing.Point(189, 420);
 			this.btnSil.Name = "btnSil";
 			this.btnSil.Size = new System.Drawing.Size(75, 42);
 			this.btnSil.TabIndex = 19;
