@@ -19,7 +19,7 @@ namespace AdoNetProjectExample
 			//güvenlik nedeniyle kapalı gelir kullandıktan sonra kapatmamız gerekiyor.
 			//açılmasını sağlamak için ortakDAL da _connection = open kullanılır
 
-			SqlCommand command = new SqlCommand("select * from ProductDetails", _connection); //sql de çalışan komutu string olarak buraya yazıyoruz
+			SqlCommand command = new SqlCommand("Select * from ProductDetails", _connection); //sql de çalışan komutu string olarak buraya yazıyoruz
 
 			//kütüphaneden gelen sql komutu yazdığımız bir sınıf
 			SqlDataReader reader = command.ExecuteReader(); //command daki sorguyu çalıştırıp reader doldurup kayıt okuma yapılabilir
@@ -52,23 +52,25 @@ namespace AdoNetProjectExample
 			//return products;
 			return dt;
 		}
+
 		//Ekle Bağlantı
 		public int Add(Product product)
 		{
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand(
-				"Insert into ProductDetails values (@UrunAdi, @UrunFiyati, @StokMiktari, @Durum, @Departman, @Ust, @Alt, @Aciklama, @Tarih)", _connection);
+				"Insert into ProductDetails values (@Department, @Upper, @Lower, @CreateDate, @Name, @Description, @Price, @Stock, @Active)", _connection);
+			
+			command.Parameters.AddWithValue("@Department", product.Department);
+			command.Parameters.AddWithValue("@Upper", product.Upper);
+			command.Parameters.AddWithValue("@Lower", product.Lower);
+            command.Parameters.AddWithValue("@CreateDate", product.CreateDate);
+			command.Parameters.AddWithValue("@Name", product.Name); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
+		    command.Parameters.AddWithValue("@Description", product.Description);
+			command.Parameters.AddWithValue("@Price", product.Price);
+			command.Parameters.AddWithValue("@Stock", product.Stock);
+			command.Parameters.AddWithValue("@Active", product.Active);
 
-			command.Parameters.AddWithValue("@UrunAdi", product.Name); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
-			command.Parameters.AddWithValue("@UrunFiyati", product.Price);
-			command.Parameters.AddWithValue("@StokMiktari", product.Stock);
-			command.Parameters.AddWithValue("@Durum", product.Active);
-			command.Parameters.AddWithValue("@Departman", product.Department);
-			command.Parameters.AddWithValue("@Ust", product.Upper);
-			command.Parameters.AddWithValue("@Alt", product.Lower);
-			command.Parameters.AddWithValue("@Aciklama", product.Description);
-			command.Parameters.AddWithValue("@Tarih", product.CreateDate);
 			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
 			command.Dispose();
 			_connection.Close();

@@ -89,8 +89,6 @@ namespace AdoNetProjectExample
 		}
 		private void dgvUrunListesi_CellClick(object sender, DataGridViewCellEventArgs e)
 		{//0. index ıd olduğu için 1 den başlatıldı
-
-			
 			txtDepartment.Text = dgvUrunListesi.CurrentRow.Cells[1].Value.ToString();
 			txtUpper.Text = dgvUrunListesi.CurrentRow.Cells[2].Value.ToString();
 			txtLower.Text = dgvUrunListesi.CurrentRow.Cells[3].Value.ToString();

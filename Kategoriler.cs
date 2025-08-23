@@ -21,7 +21,7 @@ namespace AdoNetProjectExample
 
 		private void Kategoriler_Load(object sender, EventArgs e)
 		{
-			dgvKategoriler.DataSource = categoriDAL.GetDataTable("select * from Category");
+			dgvKategoriler.DataSource = categoriDAL.GetDataTable("Select * from Category");
 		}
 
 		private void btnEkle_Click(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace AdoNetProjectExample
 		{
 			txtKategoriAdi.Text = dgvKategoriler.CurrentRow.Cells[1].Value.ToString();
 			txtKategoriAciklamasi.Text = dgvKategoriler.CurrentRow.Cells[2].Value.ToString();
-			cbActive.Checked = Convert.ToBoolean(dgvKategoriler.CurrentRow.Cells[4].Value);
+			cbActive.Checked = Convert.ToBoolean(dgvKategoriler.CurrentRow.Cells[3].Value);
 
 			btnEkle.Enabled = false;
 			btnGuncelle.Enabled = true;
@@ -75,8 +75,9 @@ namespace AdoNetProjectExample
 					Id = (int)dgvKategoriler.CurrentRow.Cells[0].Value,
 					Name = txtKategoriAdi.Text,
 					Description = txtKategoriAciklamasi.Text,
-					CreateDate = DateTime.UtcNow,
-					Active = cbActive.Checked
+					Active = cbActive.Checked,
+					CreateDate = DateTime.Now
+					
 				};
 				var sonuc = categoriDAL.Update(kategori);
 				if (sonuc > 0)
