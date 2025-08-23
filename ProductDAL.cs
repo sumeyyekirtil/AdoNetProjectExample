@@ -32,15 +32,15 @@ namespace AdoNetProjectExample
 			//	var product = new Product() //boş bi product oluşturup içindeki verileri reader dan çekiyoruz
 			//	{
 			//		ProductId = Convert.ToInt32(reader["ProductId"]),
-			//		Name = reader["UrunAdi"].ToString(), //convert ile ekledim!
-			//		Stock = Convert.ToInt32(reader["StokMiktari"]),
-			//		Price = Convert.ToDecimal(reader["UrunFiyati"]),
-			//		Active = Convert.ToBoolean(reader["Durum"]),
-			//		Department = Convert.ToString(reader["Departman"]),
-			//		Upper = Convert.ToInt32(reader["UstTakim"]),
-			//		Lower = Convert.ToInt32(reader["AltTakim"]),
-			//		CreateDate = Convert.ToDateTime(reader["DegiştirmeTarihi"]),
-			//		Description = Convert.ToString(reader["Açiklama"])
+			//		Name = reader["Name"].ToString(), //convert ile ekledim!
+			//		Stock = Convert.ToInt32(reader["Stock"]),
+			//		Price = Convert.ToDecimal(reader["Price"]),
+			//		Active = Convert.ToBoolean(reader["Active"]),
+			//		Department = Convert.ToString(reader["Department"]),
+			//		Upper = Convert.ToInt32(reader["Upper"]),
+			//		Lower = Convert.ToInt32(reader["Lower"]),
+			//		CreateDate = Convert.ToDateTime(reader["CreateDate"]),
+			//		Description = Convert.ToString(reader["Description"])
 			//	};
 			//	products.Add(product); // db den okunan ürünü listeye ekle
 			//}
@@ -58,16 +58,16 @@ namespace AdoNetProjectExample
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand(
-				"Insert into ProductDetails values(@UrunAdi,@UrunFiyati,@StokMiktari,@Durum,@Departman,@Üst,@Alt,@Açiklama,@Tarih)", _connection);
+				"Insert into ProductDetails values (@UrunAdi, @UrunFiyati, @StokMiktari, @Durum, @Departman, @Ust, @Alt, @Aciklama, @Tarih)", _connection);
 
 			command.Parameters.AddWithValue("@UrunAdi", product.Name); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
 			command.Parameters.AddWithValue("@UrunFiyati", product.Price);
 			command.Parameters.AddWithValue("@StokMiktari", product.Stock);
 			command.Parameters.AddWithValue("@Durum", product.Active);
 			command.Parameters.AddWithValue("@Departman", product.Department);
-			command.Parameters.AddWithValue("@Üst", product.Upper);
+			command.Parameters.AddWithValue("@Ust", product.Upper);
 			command.Parameters.AddWithValue("@Alt", product.Lower);
-			command.Parameters.AddWithValue("@Açiklama", product.Description);
+			command.Parameters.AddWithValue("@Aciklama", product.Description);
 			command.Parameters.AddWithValue("@Tarih", product.CreateDate);
 			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
 			command.Dispose();
@@ -80,7 +80,7 @@ namespace AdoNetProjectExample
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand(
-				"Update ProductDetails set Name=@UrunAdi, Price=@UrunFiyati, Stock=@StokMiktari, Active=@Durum, Department=@Departman, Upper=@Ust, Lower=@Alt, Description=@Aciklama, CreateDate=@Tarih @where ProductId=@id", _connection); //tüm column lar gelecekse eklemeyedebiliriz
+				"Update ProductDetails set Name=@UrunAdi, Price=@UrunFiyati, Stock=@StokMiktari, Active=@Durum, Department=@Departman, Upper=@Ust, Lower=@Alt, Description=@Aciklama, CreateDate=@Tarih where ProductId=@id", _connection); //tüm column lar gelecekse eklemeyedebiliriz
 			command.Parameters.AddWithValue("@UrunAdi", product.Name);
 			command.Parameters.AddWithValue("@UrunFiyati", product.Price);
 			command.Parameters.AddWithValue("@StokMiktari", product.Stock);

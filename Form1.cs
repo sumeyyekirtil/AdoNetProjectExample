@@ -117,6 +117,7 @@ namespace AdoNetProjectExample
 					Stock = Convert.ToInt32(txtStock.Text),
 					Price = Convert.ToDecimal(txtPrice.Text),
 					Department = Convert.ToString(txtPrice.Text),
+					CreateDate = (DateTime)dgvUrunListesi.CurrentRow.Cells[4].Value,
 					Upper = Convert.ToInt32(txtPrice.Text),
 					Lower = Convert.ToInt32(txtPrice.Text),
 					Description = Convert.ToString(txtPrice.Text),
@@ -130,6 +131,18 @@ namespace AdoNetProjectExample
 					btnEkle.Enabled = true;
 					btnGuncelle.Enabled = false;
 					btnSil.Enabled = false;
+
+					//güncelle sonra textbox ları boşalt
+					txtName.Clear();
+					txtCreateDate.Clear();
+					txtDepartment.Clear();
+					txtDescription.Clear();
+					txtLower.Clear();
+					txtPrice.Clear();
+					txtStock.Clear();
+					txtUpper.Clear();
+					cbActive.Checked = false;
+
 					MessageBox.Show("Kayıt Başarılı!");
 				}
 				else
@@ -139,7 +152,7 @@ namespace AdoNetProjectExample
 			}
 			catch (Exception hata)
 			{
-				MessageBox.Show("Hata Oluştu! Lütfen Tüm Alanları Doldurunuz!");
+				MessageBox.Show("Hata Oluştu! Lütfen Tüm Alanları Doldurunuz!" + hata);
 			}
 
 		}
@@ -154,9 +167,22 @@ namespace AdoNetProjectExample
 					if (sonuc > 0)
 					{
 						dgvUrunListesi.DataSource = productDal.GetDataTable();
+
 						btnEkle.Enabled = true;
 						btnGuncelle.Enabled = false;
 						btnSil.Enabled = false;
+
+						//sildikten sonra textbox ları boşalt
+						txtName.Clear();
+						txtCreateDate.Clear();
+						txtDepartment.Clear();
+						txtDescription.Clear();
+						txtLower.Clear();
+						txtPrice.Clear();
+						txtStock.Clear();
+						txtUpper.Clear();
+						cbActive.Checked = false;
+
 						MessageBox.Show("Kayıt Silindi!");
 					}
 				}

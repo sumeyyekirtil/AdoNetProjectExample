@@ -63,7 +63,7 @@
 			this.dgvUrunListesi.Name = "dgvUrunListesi";
 			this.dgvUrunListesi.RowHeadersWidth = 51;
 			this.dgvUrunListesi.RowTemplate.Height = 24;
-			this.dgvUrunListesi.Size = new System.Drawing.Size(610, 478);
+			this.dgvUrunListesi.Size = new System.Drawing.Size(774, 478);
 			this.dgvUrunListesi.TabIndex = 0;
 			this.dgvUrunListesi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunListesi_CellClick);
 			// 
@@ -283,7 +283,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(967, 543);
+			this.ClientSize = new System.Drawing.Size(1131, 543);
 			this.Controls.Add(this.gbProduct);
 			this.Controls.Add(this.dgvUrunListesi);
 			this.ForeColor = System.Drawing.Color.Navy;

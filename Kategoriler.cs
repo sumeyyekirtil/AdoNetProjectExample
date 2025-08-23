@@ -96,7 +96,7 @@ namespace AdoNetProjectExample
 			}
 			catch (Exception hata)
 			{
-				MessageBox.Show("Hata Oluştu!" + hata);
+				MessageBox.Show("Hata Oluştu!" + hata.Message);
 			}
 		}
 
@@ -110,6 +110,7 @@ namespace AdoNetProjectExample
 					if (sonuc > 0)
 					{
 						dgvKategoriler.DataSource = categoriDAL.GetDataTable("select * from Category");
+
 						btnEkle.Enabled = true;
 						btnGuncelle.Enabled = false;
 						btnSil.Enabled = false;

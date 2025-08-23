@@ -28,12 +28,12 @@ namespace AdoNetProjectExample
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand(
-				"Update Category set Name=@Name, Description=@Description, CreateDate=@CreateDate, Active=@Durum where Id=@KatId", _connection);
+				"Update Category set Name=@Name, Description=@Description, CreateDate=@CreateDate, Active=@Active where Id=@KatId", _connection);
 			command.Parameters.AddWithValue("@KatId", category.Id);
 			command.Parameters.AddWithValue("@Name", category.Name);
 			command.Parameters.AddWithValue("@Description", category.Description);
 			command.Parameters.AddWithValue("@CreateDate", category.CreateDate);
-			command.Parameters.AddWithValue("@Durum", category.Active);
+			command.Parameters.AddWithValue("@Active", category.Active);
 			sonuc = command.ExecuteNonQuery();
 			command.Dispose();
 			_connection.Close();
@@ -44,8 +44,7 @@ namespace AdoNetProjectExample
 			int sonuc = 0;
 			ConnectionKontrol();
 
-			SqlCommand command = new SqlCommand(
-				"Delete From Category where Id=@id", _connection);
+			SqlCommand command = new SqlCommand("Delete From Category where Id=@id", _connection);
 
 			command.Parameters.AddWithValue("@id", id);
 
