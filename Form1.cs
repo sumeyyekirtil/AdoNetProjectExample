@@ -35,7 +35,7 @@ namespace AdoNetProjectExample
 		ProductDAL productDal = new ProductDAL(); //nesne oluşturuldu
 		private void ProductDetails_Load(object sender, EventArgs e)
 		{
-			dgvUrunListesi.DataSource = productDal.GetDataTable("select * from ProductDetails");
+			dgvUrunListesi.DataSource = productDal.GetDataTable("Select * from ProductDetails");
 		}
 
 		private void btnEkle_Click(object sender, EventArgs e)
@@ -44,14 +44,14 @@ namespace AdoNetProjectExample
 			{//ürün nesnesi alındı
 				var urun = new Product
 				{
-					Name = txtName.Text,
-					Stock = Convert.ToInt32(txtStock.Text),
-					Price = Convert.ToDecimal(txtPrice.Text),
 					Department = Convert.ToString(txtDepartment.Text),
 					Upper = Convert.ToInt32(txtUpper.Text),
-					CreateDate = (DateTime)dgvUrunListesi.CurrentRow.Cells[4].Value,
 					Lower = Convert.ToInt32(txtLower.Text),
+					CreateDate = (DateTime)dgvUrunListesi.CurrentRow.Cells[4].Value,
+					Name = txtName.Text,
 					Description = Convert.ToString(txtDescription.Text),
+					Stock = Convert.ToInt32(txtStock.Text),
+					Price = Convert.ToDecimal(txtPrice.Text),
 					Active = cbActive.Checked
 				};
 				int sonuc = productDal.Add(urun);
@@ -85,7 +85,6 @@ namespace AdoNetProjectExample
 			{
 				MessageBox.Show("Hata Oluştu! Lütfen Tüm Alanları Doldurunuz!" + hata);
 			}
-
 		}
 		private void dgvUrunListesi_CellClick(object sender, DataGridViewCellEventArgs e)
 		{//0. index ıd olduğu için 1 den başlatıldı
@@ -105,20 +104,20 @@ namespace AdoNetProjectExample
 		}
 
 		private void btnGuncelle_Click(object sender, EventArgs e)
-		{
+		{ //txt atamaları doğru yapıldığından emin olmalıyız.
 			try
 			{
 				var urun = new Product
 				{
 					ProductId = (int)dgvUrunListesi.CurrentRow.Cells[0].Value,
+					Department = Convert.ToString(txtDepartment.Text),
+					Upper = Convert.ToInt32(txtUpper.Text),
+					Lower = Convert.ToInt32(txtLower.Text),
+					CreateDate = (DateTime)dgvUrunListesi.CurrentRow.Cells[4].Value,
 					Name = txtName.Text,
+					Description = Convert.ToString(txtDescription.Text),
 					Stock = Convert.ToInt32(txtStock.Text),
 					Price = Convert.ToDecimal(txtPrice.Text),
-					Department = Convert.ToString(txtPrice.Text),
-					CreateDate = (DateTime)dgvUrunListesi.CurrentRow.Cells[4].Value,
-					Upper = Convert.ToInt32(txtPrice.Text),
-					Lower = Convert.ToInt32(txtPrice.Text),
-					Description = Convert.ToString(txtPrice.Text),
 					Active = cbActive.Checked
 				};
 				int sonuc = productDal.Update(urun);

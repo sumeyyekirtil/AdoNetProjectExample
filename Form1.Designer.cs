@@ -59,11 +59,11 @@
 			// 
 			this.dgvUrunListesi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvUrunListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvUrunListesi.Location = new System.Drawing.Point(345, 31);
+			this.dgvUrunListesi.Location = new System.Drawing.Point(332, 31);
 			this.dgvUrunListesi.Name = "dgvUrunListesi";
 			this.dgvUrunListesi.RowHeadersWidth = 51;
 			this.dgvUrunListesi.RowTemplate.Height = 24;
-			this.dgvUrunListesi.Size = new System.Drawing.Size(774, 478);
+			this.dgvUrunListesi.Size = new System.Drawing.Size(787, 500);
 			this.dgvUrunListesi.TabIndex = 0;
 			this.dgvUrunListesi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunListesi_CellClick);
 			// 
@@ -91,9 +91,9 @@
 			this.gbProduct.Controls.Add(this.txtDepartment);
 			this.gbProduct.Controls.Add(this.txtCreateDate);
 			this.gbProduct.Controls.Add(this.cbActive);
-			this.gbProduct.Location = new System.Drawing.Point(29, 31);
+			this.gbProduct.Location = new System.Drawing.Point(22, 31);
 			this.gbProduct.Name = "gbProduct";
-			this.gbProduct.Size = new System.Drawing.Size(291, 478);
+			this.gbProduct.Size = new System.Drawing.Size(291, 500);
 			this.gbProduct.TabIndex = 1;
 			this.gbProduct.TabStop = false;
 			this.gbProduct.Text = "Ürün Detay";

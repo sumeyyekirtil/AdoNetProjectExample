@@ -26,7 +26,7 @@ namespace AdoNetProjectExample
 
 			dt.Load(reader); //dt dan okuduğumuz kayıtları boş datatable a yüklüyoruz.
 
-			//Db kayıt getirme yöntemi 2 ->
+			////Db kayıt getirme yöntemi 2->
 			//while (reader.Read()) //reader nesnesi içerisinde okunacak kayıt olduğu sürece kayıt oku (t/f)
 			//{
 			//	var product = new Product() //boş bi product oluşturup içindeki verileri reader dan çekiyoruz
@@ -44,7 +44,7 @@ namespace AdoNetProjectExample
 			//	};
 			//	products.Add(product); // db den okunan ürünü listeye ekle
 			//}
-			//kayıt bittiğinde;
+			////kayıt bittiğinde;
 			reader.Close(); // veritabanından okuyucuyu kapat
 			_connection.Close(); // veritabanı bağlantısını kapat
 			command.Dispose(); // sql komut nesnesini yoket
@@ -59,17 +59,18 @@ namespace AdoNetProjectExample
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand(
-				"Insert into ProductDetails values (@Department, @Upper, @Lower, @CreateDate, @Name, @Description, @Price, @Stock, @Active)", _connection);
+				"Insert into ProductDetails values (@Departman, @Ust, @Alt, @Tarih, @UrunAdi, @Aciklama, @UrunFiyati, @StokMiktari, @Durum)", _connection);
 			
-			command.Parameters.AddWithValue("@Department", product.Department);
-			command.Parameters.AddWithValue("@Upper", product.Upper);
-			command.Parameters.AddWithValue("@Lower", product.Lower);
-            command.Parameters.AddWithValue("@CreateDate", product.CreateDate);
-			command.Parameters.AddWithValue("@Name", product.Name); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
-		    command.Parameters.AddWithValue("@Description", product.Description);
-			command.Parameters.AddWithValue("@Price", product.Price);
-			command.Parameters.AddWithValue("@Stock", product.Stock);
-			command.Parameters.AddWithValue("@Active", product.Active);
+			command.Parameters.AddWithValue("@Departman", product.Department);
+			command.Parameters.AddWithValue("@Ust", product.Upper);
+			command.Parameters.AddWithValue("@Alt", product.Lower);
+            command.Parameters.AddWithValue("@Tarih", product.CreateDate);
+			command.Parameters.AddWithValue("@UrunAdi", product.Name); //addWithValue metodu 2 değişken alır parametre aracılığıyla ekrana yolluyoruz (sqlInjection ile saldırıyı önlemiş oluyoruz)
+		    command.Parameters.AddWithValue("@Aciklama", product.Description);
+			command.Parameters.AddWithValue("@UrunFiyati", product.Price);
+			command.Parameters.AddWithValue("@StokMiktari", product.Stock);
+			command.Parameters.AddWithValue("@Durum", product.Active);
+			command.Parameters.AddWithValue("@id", product.ProductId);
 
 			sonuc = command.ExecuteNonQuery(); //add metodu geriye değer olarak 0 dan büyük değer döndürürse işlem başarılı olup çıkış yaptırır
 			command.Dispose();
@@ -82,16 +83,19 @@ namespace AdoNetProjectExample
 			int sonuc = 0;
 			ConnectionKontrol();
 			SqlCommand command = new SqlCommand(
-				"Update ProductDetails set Name=@UrunAdi, Price=@UrunFiyati, Stock=@StokMiktari, Active=@Durum, Department=@Departman, Upper=@Ust, Lower=@Alt, Description=@Aciklama, CreateDate=@Tarih where ProductId=@id", _connection); //tüm column lar gelecekse eklemeyedebiliriz
-			command.Parameters.AddWithValue("@UrunAdi", product.Name);
-			command.Parameters.AddWithValue("@UrunFiyati", product.Price);
-			command.Parameters.AddWithValue("@StokMiktari", product.Stock);
-			command.Parameters.AddWithValue("@Durum", product.Active);
+				"Update ProductDetails set Department=@Departman, Upper=@Ust, Lower=@Alt, CreateDate=@Tarih, Name=@UrunAdi, Description=@Aciklama, Price=@UrunFiyati, Stock=@StokMiktari, Active=@Durum where ProductId=@id", _connection); //tüm column lar gelecekse eklemeyedebiliriz
+			
 			command.Parameters.AddWithValue("@Departman", product.Department);
 			command.Parameters.AddWithValue("@Ust", product.Upper);
 			command.Parameters.AddWithValue("@Alt", product.Lower);
-			command.Parameters.AddWithValue("@Aciklama", product.Description);
 			command.Parameters.AddWithValue("@Tarih", product.CreateDate);
+			command.Parameters.AddWithValue("@UrunAdi", product.Name);
+			command.Parameters.AddWithValue("@Aciklama", product.Description);
+			command.Parameters.AddWithValue("@UrunFiyati", product.Price);
+			command.Parameters.AddWithValue("@StokMiktari", product.Stock);
+			command.Parameters.AddWithValue("@Durum", product.Active);
+			command.Parameters.AddWithValue("@id", product.ProductId);
+
 			sonuc = command.ExecuteNonQuery();
 			command.Dispose();
 			_connection.Close();
